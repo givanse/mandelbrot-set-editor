@@ -1,0 +1,64 @@
+<div class="pointer-events-none absolute pin-t w-full h-full m-2">
+
+  <button class="btn-blue" {{action "selectTool" "move"}}>
+    &hercon;
+  </button>
+
+  <button class="btn-blue" {{action "selectTool" "zoom-in"}}>
+    &plus;
+  </button>
+
+  <div class="pointer-events-auto inline-block p-1 bg-white rounded text-lg">
+    {{color-picker
+      value='000'
+      defaultRepresentation="HSLa"
+      components=pickrComponents
+      format="HSLa"
+      saveLabel="set fill color"
+      onSave=(action "handleOnSaveFill")
+    }}
+  </div>
+  <div class="pointer-events-auto inline-block p-1 bg-white rounded text-3xl">
+    <table class="text-center">
+      <tr>
+        <td>
+          <input
+            class="text-right"
+            value={{this.maxIterations}}
+            size="4"
+            onchange={{action "updateIterations"}}
+            placeholder="max iterations"
+          />
+        </td>
+        <td>
+          <input
+            class="text-right"
+            value={{this.scale}}
+            size="2"
+            onchange={{action "updateScale"}}
+            placeholder="scale"
+          />
+        </td>
+        <td>&nbsp;&gt; x&sup2; &plus; y&sup2;</td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>&ifr;</label>
+        </td>
+        <td>
+          <label>&zopf;</label>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+{{#animated-if this.isPlotting use=transitionSpinner }}
+  <div class="grid-full absolute pin w-full h-full">
+    <span class="spinner"></span>
+  </div>
+{{/animated-if}}
+
+<canvas id="canvas" {{action "clickCanvas"}}></canvas>

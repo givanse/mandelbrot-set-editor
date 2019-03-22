@@ -1,0 +1,40 @@
+@import 'tailwind.css';
+
+#canvas {
+  border: solid black 1px;
+  /*cursor: zoom-in;*/
+}
+
+.pickr {
+  display: inline-block;
+}
+
+.grid-full {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+}
+
+.spinner {
+  color: white;
+}
+.spinner:before {
+  /*content: '\0229b';*/
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  margin-top: -15px;
+  margin-left: -15px;
+  border-radius: 50%;
+  border: 10px solid #ccc;
+  border-top-color: rgb(24, 135, 232);
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
