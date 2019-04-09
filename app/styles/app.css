@@ -1,10 +1,5 @@
 @import 'tailwind.css';
 
-#canvas {
-  border: solid black 1px;
-  /*cursor: zoom-in;*/
-}
-
 .pickr {
   display: inline-block;
 }

@@ -1,0 +1,67 @@
+<div class="pointer-events-none bg-grey absolute pin-t m-2 p-2 rounded">
+
+  <button class="btn-blue relative" {{action "selectTool" "move"}}>
+    &boxvh;
+  </button>
+
+  <button class="btn-blue relative" {{action "selectTool" "zoom-in"}}>
+    <div class="absolute pin-x">&nwarr;</div>
+    <div class="absolute pin-x">&nearr;</div>
+    <div class="absolute pin-x">&searr;</div>
+    <div class="absolute pin-x">&swarr;</div>
+    &nbsp;
+  </button>
+
+  <div class="pointer-events-auto inline-block p-1 bg-white rounded text-lg">
+    {{color-picker
+      value='0090e3'
+      defaultRepresentation="HSLa"
+      components=inMSetPickerComponents
+      format="HSLa"
+      saveLabel="Mandelbrot set color"
+      onSave=attrs.setInMSetHue
+    }}
+  </div>
+  <div class="pointer-events-auto inline-block p-1 text-2xl">
+
+    <table class="text-center bg-white rounded">
+      <tr>
+        <td>
+          <input
+            class="text-right"
+            value={{this.maxAccel}}
+            size="4"
+            onchange={{action "updateMaxAccel"}}
+            title="max acceleration"
+          />
+        </td>
+        <td>
+          <input
+            class="text-right"
+            value={{this.size}}
+            size="4"
+            onchange={{action "updateSize"}}
+            title="size"
+          />
+        </td>
+        <td>
+          &fnof;&lpar;
+          z
+          &rpar;&equals;
+          <span>{{attrs.funcVals.z}}</span>
+          &sup2;&nbsp;&plus;
+          <span>{{attrs.funcVals.c}}</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>acceleration</label>
+          <label>size</label>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</div>

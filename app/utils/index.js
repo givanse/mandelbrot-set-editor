@@ -1,4 +1,16 @@
 
+export const math = {
+  i: {
+    /**
+     * @param {Complex} c a complex number 
+     * @return {Number} r the absolute value of complex number c
+     */
+    abs: function(c) { // c's distance from 0
+      return Math.sqrt(c.r * c.r + c.i * c.i);
+    }
+  },
+};
+
 export function r255() {
   return Math.random() * (256 - 0) + 0;
 }
